@@ -11,7 +11,7 @@ Do stworzenia użyłem biblioteki Three, oraz bundlera Vite
 
 # Sposób wykonania i problemy
 
-Standardowo zacząłem od ustawienia kamery, sceny i tzw. renderera. (poniżej standardowe ustawienie z dokumentacji three) <br>
+Standardowo zacząłem od ustawienia kamery, sceny i tzw. renderera. (poniżej ustawienie z dokumentacji three) <br>
 
 ```
 const scene = new THREE.Scene();
