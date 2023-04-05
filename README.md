@@ -43,8 +43,8 @@ ringCollision(){
     else { return false }
 }
 ```
-Gdybym nie był w posiadaniu gotowej funkcji distanceTo, musiałbym sprawdzać odległość sposób poniżej:
-![alt text](https://code.org/curriculum/algebra/19/collision2.png)
+Gdybym nie był w posiadaniu gotowej funkcji distanceTo, musiałbym sprawdzać odległość z Pitagorasa:
+![alt text](https://i.stack.imgur.com/46AvX.png)
 
 Kolizja kulek z kulkami była najtrudniejsza do zaimplementowania, bo sprawdzania każdej kulki z kulką wiąże się z dość słabym performance np. dla 10 kulek jest to 10! operacji. Znalazłem nastomiast sposób tworząc tablicę 2d z pustymi tablicami dla każdego indeksu i dodając do niej kulki co klatkę.
 ```
