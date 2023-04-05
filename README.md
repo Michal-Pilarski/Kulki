@@ -24,6 +24,7 @@ document.body.appendChild( renderer.domElement )
 
 Aby symulacja działała potrzeba wykonywać ją w pętli, w javascript istnieje funkcja window.requestAnimationFrame(), która pozwala na animacje<br>
 
+# Detekcja kolizji
 Następnie stworzyłem pierścień, w three jest to obiekt RingGeometry, a detekcję kolizji z pierścieniem zamieściłem w klasie kulki (Ball)<br>
 Pierścień:
 ```
@@ -58,5 +59,30 @@ for (let y = 0; y < gridSize.height; y++) {
 Teraz szansa na to że wszystkie kulki znajdą się w jednym segmencie jest dosyć niska i sprawdzanie kolizji między kulkami następuje tylko jeżeli w tablicy znajdują się co najmniej 2 kulki
 
 # Odbijanie się oraz grawitacja
-Kiedy nastąpi kolizja 
+Kiedy nastąpi kolizja na samym środku to pozycja x będzie równa 0 natomiast jeżeli kulka trafi np. z prawego boku to wtedy pozycja x wyniesie powiedzmy 2. Z tego mogę wywnioskować pod jakim kątem trafiła kulka
+```
+if(this.ringCollision()){
+    this.gravity = GRAVITY_AFTER_COLLISION
+    this.velocityY = -this.velocityY
+    this.velocityX = this.position.x / 100 <- 
+}
+```
 
+Podobnie z odbijaniem kulki od kulki z tą różnicą, że trzeba obie kulki odbić względem siebie
+```
+if(balls[i].position.distanceTo(balls[j].position) - 2*balls[i].radius <= 0.001){
+
+    balls[i].velocityX = -(balls[i].position.x - balls[j].position.x) / 10
+    balls[i].velocityY = -(balls[i].position.y - balls[j].position.y) / 10
+
+    balls[j].velocityX = -(balls[j].position.x - balls[i].position.x) / 10
+    balls[j].velocityY = -(balls[j].position.y - balls[i].position.y) / 10
+
+}
+```
+
+Grawitacja natomiast dekrementuje się co klatkę i ta wartość odejmowana jest od prędkości Y, przez co kulka zatacza łuk
+```
+	this.gravity -= 0.0001
+	this.position.y -= this.velocityY - this.gravity
+```
