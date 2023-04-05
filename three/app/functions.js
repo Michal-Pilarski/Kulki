@@ -3,7 +3,7 @@ import * as THREE from 'three';
 const GRAVITY_AFTER_COLLISION = 0.005
 
 class Ball{
-    constructor(id, radius, color, ring){
+    constructor(radius, color, ring){
         this.radius = radius
         this.velocityY = 0.02
         this.velocityX = 0
