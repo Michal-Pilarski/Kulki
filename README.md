@@ -83,6 +83,6 @@ if(balls[i].position.distanceTo(balls[j].position) - 2*balls[i].radius <= 0.001)
 
 Grawitacja natomiast dekrementuje się co klatkę i ta wartość odejmowana jest od prędkości Y, przez co kulka zatacza łuk
 ```
-	this.gravity -= 0.0001
-	this.position.y -= this.velocityY - this.gravity
+this.gravity -= 0.0001
+this.position.y -= this.velocityY - this.gravity
 ```
