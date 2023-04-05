@@ -56,7 +56,7 @@ for (let y = 0; y < gridSize.height; y++) {
   }
 }
 ```
-Teraz szansa na to że wszystkie kulki znajdą się w jednym segmencie jest dosyć niska i sprawdzanie kolizji między kulkami następuje tylko jeżeli w tablicy znajdują się co najmniej 2 kulki. Niestety kulki nie zawsze odbiają się względem siebie, wydaje mi się że jest to spowodowane tym że kulki mogą się odbijać na granicy siatki przez co pomijają sprawdzenie kolizji.
+Teraz szansa na to że wszystkie kulki znajdą się w jednym segmencie jest dosyć niska i sprawdzanie kolizji między kulkami następuje tylko jeżeli w tablicy znajdują się co najmniej 2 kulki. Niestety kulki nie zawsze odbiają się względem siebie, wydaje mi się że jest to spowodowane tym że kulki mogą przelecieć na granicy siatki przez co pomijają sprawdzenie kolizji.
 
 # Odbijanie się oraz grawitacja
 Kiedy nastąpi kolizja na samym środku to pozycja x będzie równa 0 natomiast jeżeli kulka trafi np. z prawego boku to wtedy pozycja x wyniesie powiedzmy 2. Z tego mogę wywnioskować pod jakim kątem trafiła kulka
